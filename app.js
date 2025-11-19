@@ -4,9 +4,12 @@ let calculate = (number) => {
   input.value += number;
 };
 
-function result() {
+async function result() {
   try {
     input.value = eval(input.value);
+    const res = await fetch('/api/joke');
+    const data = await res.json();
+    alert(data.joke);
   }catch (error) {
     alert('Invalid operation');
   }
