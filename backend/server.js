@@ -10,7 +10,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, '../frontend')));
 app.use(express.json());
 
 const openai = new OpenAI({
@@ -31,13 +31,13 @@ app.get("/api/joke", async (_req, res) => {
       temperature: 0.8
     });
 
-    const joke = completion.choices?.[0]?.message?.content?.trim() || "Math joke unavilable.";
+    const joke = completion.choices?.[0]?.message?.content?.trim() || "Math joke unavailable.";
 
     res.json({ joke });
   } catch(err) {
     console.error("OpenAI API Error:", err);
     res.status(500).json({
-      joke: "Why was the math book? It had too many problems."
+      joke: "Why was the math book sad? It had too many problems."
     });
   }
 });
