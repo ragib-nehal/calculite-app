@@ -1,4 +1,5 @@
 # 🧮 Simple Calculator with AI Math Jokes
+# Demo video: https://www.youtube.com/watch?v=U3NXdxENNvc
 
 A fun calculator app that tells you a math joke after every calculation using OpenAI's API.
 
